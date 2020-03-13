@@ -1,0 +1,30 @@
+// color
+$primaryColor: #36aead;
+$colorContent:rgba(155,155,155,1);
+$colorTitle:rgba(74,74,74,1);
+/* Break-point */
+$sm: 768px !default;
+$md: 992px !default;
+$lg: 1200px !default;
+$xl: 1920px !default;
+$xs: $sm - 1 !default;
+
+/* header */
+$navHeight: 100px;
+
+/* footer */
+$footerHeight: 180px;
+
+// fontsize
+$fontSize14:14px;
+$fontSize18:18px;
+
+:export {
+  navHeight: $navHeight;
+  footerHeight: $footerHeight;
+  primaryColor: $primaryColor;
+}
+
+
+
+

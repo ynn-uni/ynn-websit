@@ -1,0 +1,58 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: PingFang SC, Microsoft YaHei, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:active {
+  color: #272727;
+}
+
+.layout-width {
+  width: 1200px;
+  margin: auto;
+}
+h2,h3{
+  padding: 0;
+  margin: 0;
+}
+p{
+  padding: 0;
+  margin: 0;
+}
+
+// 重置elementUI分页样式
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #36aead!important;
+  color: #FFFFFF!important;
+}
+.el-pagination.is-background .btn-prev, .el-pagination.is-background .btn-next, .el-pagination.is-background .el-pager li {
+  margin: 0 5px;
+  background-color: #fff!important;
+  color: rgba(54,174,173,1)!important;
+  min-width: 30px;
+  border-radius: 2px;
+  font-weight: normal;
+  border:1px solid rgba(158,175,194,1);
+}
+
+// font-size
+.font-size14{
+  font-size: 14px;
+}
+.font-size18{
+  font-size: 18px;
+}
+
+
