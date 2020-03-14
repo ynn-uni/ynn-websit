@@ -3,10 +3,10 @@
     <el-card class="news-info" :shadow="pagename=='news'?'hover':''" :body-style="{padding:'0px'}" @click.native="handeldetail(newsdata.id)">
       <img :src="require('./../../assets/images/home_09.gif')" />
       <div class="news-detail">
-        <h2>{{ newsdata.title }}</h2>
-        <div class="news-content">{{ newsdata.brief }}</div>
+        <h2>{{ data.title }}</h2>
+        <div class="news-content">{{ data.brief }}</div>
         <div class="news-time">
-          {{ newsdata.time }}
+          {{ data.time }}
           <!-- <div>需求人数：{{ detail.requireNum }}人</div> -->
         </div>
       </div>
@@ -34,10 +34,14 @@ export default {
       time: '1'
     }
   },
+  computed: {
+    data() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      this.newsdata.time = this.newsdata.time.split(' ')[0]
+      return this.newsdata
+    }
+  },
   mounted() {
-    // console.log(this.newsdata)
-    this.newsdata.time = this.newsdata.time.split(' ')[0]
-    // console.log(this.newsdata.time)
   },
   methods: {
     handeldetail(newsId) {

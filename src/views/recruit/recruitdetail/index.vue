@@ -1,26 +1,26 @@
 <template>
   <div class="recruitdetail layout-width">
     <div class="recruit-info">
-      <!-- <img :src="require('./../../../assets/images/red2.png')" alt="" /> -->
-      <img :src="RecruitDetails.cover" alt="" />
+      <img :src="require('./../../../assets/images/red2.png')" alt="" />
+      <!-- <img :src="RecruitDetails.cover" alt="" /> -->
       <div class="info">
         <div class="title">
-          {{ RecruitDetails.title }}
+          {{ dataSource.title }}
         </div>
         <div class="type">
           <span>试验时间：</span>
-          <span>{{ start }}～{{ end }}</span>
+          <span>{{ dataSource.startDate }}～{{ dataSource.endDate }}</span>
         </div>
         <div class="type">
           <span>试验类型：</span>
-          <span>临床试验</span>
+          <span>{{ dataSource.type }}</span>
         </div>
         <div class="type">
           <span>试验策划：</span>
           <span>临床试验口服玎片10天</span>
         </div>
         <div class="dis">
-          {{ RecruitDetails.brief }}
+          {{ dataSource.brief }}
         </div>
         <div class="share">
           <div class="btn">
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <div class="introduce" v-html="RecruitDetails.content" />
+    <div class="introduce" v-html="dataSource.dis" />
   </div>
 </template>
 
@@ -57,22 +57,23 @@ export default {
   },
   data() {
     return {
-      dataSource: [
+      dataSource:
         {
           title: '「临床试验」琥珀酸曲格叻玎片「临床试验」琥珀酸曲格叻玎片',
           content: '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
           startDate: '2019.10.22',
           endDate: '2019.11.22',
+          type: '临床试验',
           image: '',
+          brief: '这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍',
           requireNum: 20,
           dis: `<p>这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项 </p>
       <p>这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项</p>
       <p>这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项</p>
-      <img src="/static/img/red2.77ac4bf6.png" alt="" />
+      <img src="/static/img/red1.e0b27613.png" alt="">
       <p>这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项</p>
     `
-        }
-      ],
+        },
       RecruitDetails: {},
       start: '',
       end: ''
@@ -80,32 +81,6 @@ export default {
   },
   created() {
     console.log('recruitId:' + this.$route.query.recruitId)
-    this.RecruitDetails = {
-      'id': 1,
-      'category': 0,
-      'title': '「临床试验」琥珀酸曲格叻玎片',
-      'cover': '/static/img/red1.e0b27613.png',
-      'brief': '这里是一些活动内容的基本介绍这里是一些活动内容的基本介绍这里是一些活动内容的基本介绍这里是一些活动内 容的基本介绍这里是一些活动内容的基本介绍这里是一些活动内容的基本介绍这里是一些活动内容的基本介绍这里 是一些活动内容的基本介绍',
-      'content': `<p>这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项 </p>
-      <p>这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项</p>
-      <p>这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项</p>
-      <img src="/static/img/red1.e0b27613.png" alt="" />
-      <p>这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项这里是一些介绍及注意事项</p>
-    `,
-      'start': '2019-11-01 00:00:00',
-      'end': '2019-11-30 23:59:59',
-      'amount': 20,
-      'sort': 0,
-      'status': 1,
-      'time': '2019-11-28 14:09:20'
-    }
-    // 整理时间格式
-    var start = this.RecruitDetails.start.split(' ')[0]
-    var end = this.RecruitDetails.end.split(' ')[0]
-    var newStart = start.split('-')
-    var newEnd = end.split('-')
-    this.start = `${newStart[0]}年${newStart[1]}月${newStart[2]}日`
-    this.end = `${newEnd[0]}年${newEnd[1]}月${newEnd[2]}日`
   },
   methods: {
     open() {
@@ -128,6 +103,15 @@ export default {
           // });
         }
       })
+    },
+    initDate() {
+      // 整理时间格式
+      var start = this.RecruitDetails.start.split(' ')[0]
+      var end = this.RecruitDetails.end.split(' ')[0]
+      var newStart = start.split('-')
+      var newEnd = end.split('-')
+      this.start = `${newStart[0]}年${newStart[1]}月${newStart[2]}日`
+      this.end = `${newEnd[0]}年${newEnd[1]}月${newEnd[2]}日`
     }
   }
 }

@@ -16,9 +16,6 @@
         <NewsInfo :pagename="pageName" :newsdata="newsdata" :style="{width:pageName=='home'?'550px':'',marginTop:pageName=='home'?'30px':''}" />
         <div class="news-list">
           <NewsItem v-for="(item,index) of NewsList" :key="index" :newsiteminfo="item" />
-          <!-- <NewsItem />
-          <NewsItem />
-          <NewsItem /> -->
         </div>
       </div>
     </div>
@@ -157,7 +154,6 @@
 import NewsInfo from '@/components/News/NewsInfo'
 import NewsItem from '@/components/News/NewsItem'
 import ProjectItem from '@/components/Recruit/ProjectItem'
-import { getNewsList } from './../../request'
 export default {
   name: 'Home',
   components: {
@@ -200,19 +196,18 @@ export default {
     }
   },
   created() {
-    console.log(getNewsList)
     // 只要前5条
     this.NewsList = [
       {
         'id': 1,
-        'title': '这里是标题，这里放上新闻资讯标题1',
+        'title': '这里是标题，这里放上新闻资讯标题1这里是标题，这里放上新闻资讯标题1这里是标题，这里放上新闻资讯标题1',
         'cover': './../../assets/images/home_05.gif',
         'brief': '这里是内容，这里放上新闻资讯的内容这里是内容，这里放上新闻资讯的内容这里是 内容，这里放上新闻资讯的内容这里是内容，这里放上新闻资讯的内容这里放上新闻资讯的内容',
         'time': '2019-11-28 14:09:20'
       },
       {
         'id': 2,
-        'title': '这里是标题，这里放上新闻资讯标题2',
+        'title': '这里是标题，这里放上新闻资讯标题2这里是标题，这里放上新闻资讯标题1这里是标题，这里放上新闻资讯标题1这里是标题，这里放上新闻资讯标题1',
         'cover': './../../assets/images/home_05.gif',
         'brief': '这里是内容，这里放上新闻资讯的内容这里是内容，这里放上新闻资讯的内容这里是 内容，这里放上新闻资讯的内容这里是内容，这里放上新闻资讯的内容…',
         'time': '2019-11-29 14:09:20'

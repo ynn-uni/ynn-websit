@@ -1,18 +1,17 @@
 <template>
   <el-card
     class="project-item"
-    shadow="hover"
     :style="{marginBottom:pagename=='recruit'?'50px':''}"
     :body-style="{padding:'0px'}"
-    @click.native="handeldetail(detail.id)"
+    @click.native="handeldetail(data.id)"
   >
     <img :src="require('./../../assets/images/home_09.gif')" />
     <div class="project-detail">
-      <h2>{{ detail.title }}</h2>
-      <div class="project-content">{{ detail.brief }}</div>
+      <h2>{{ data.title }}</h2>
+      <div class="project-content">{{ data.brief }}</div>
       <div class="project-info">
-        <div>{{ start }} ~ {{ end }}</div>
-        <div>需求人数：{{ detail.amount }}人</div>
+        <div>{{ data.start }} ~ {{ data.end }}</div>
+        <div>需求人数：{{ data.amount }}人</div>
       </div>
     </div>
   </el-card>
@@ -37,14 +36,18 @@ export default {
       end: ''
     }
   },
-  created() {
-    this.start = this.detail.start.split(' ')[0]
-    this.end = this.detail.end.split(' ')[0]
+  computed: {
+    data() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      this.detail.start = this.detail.start.split(' ')[0].replace('-', '.')
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      this.detail.end = this.detail.end.split(' ')[0].replace('-', '.')
+      return this.detail
+    }
   },
+
   methods: {
     handeldetail(recruitId) {
-    //  alert(1);
-    //   console.log(1);
       this.$router.push({ path: '/recruitdetail', query: { recruitId: recruitId }})
     }
   }
@@ -55,6 +58,7 @@ export default {
 .project-item {
   color: #9b9b9b;
   cursor: pointer;
+
   img {
     width: 100%;
   }

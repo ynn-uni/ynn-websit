@@ -1,4 +1,5 @@
 <template>
+
   <div class="news-item">
     <div class="news-item-time">
       <div class="news-item-date">{{ date }}</div>
@@ -6,7 +7,7 @@
     </div>
     <div class="news-item-detail">
       <!-- <router-link to="/newsdetail" @click="handel">这里是标题，这里放上新闻资讯标题</router-link> -->
-      <a @click="handeldetail">{{ newsiteminfo.title }}</a>
+      <a class="title" @click="handeldetail">{{ newsiteminfo.title }}</a>
       <div class="news-item-content">{{ newsiteminfo.brief }}</div>
     </div>
   </div>
@@ -25,21 +26,22 @@ export default {
   },
   data() {
     return {
-      date: '',
-      month: ''
+      // date: '',
+      // month: ''
     }
   },
-  mounted() {
-    var time = this.newsiteminfo.time.split(' ')[0]
-    // console.log(time)
-    var date = time.split('-')
-    this.date = date[date.length - 1]
-    // console.log(this.date)
-    var month = time.split(`-${this.date}`)[0]
-    this.month = month.replace('-', '.')
-    // console.log(this.month)
-    // this.newsiteminfo.time=
+  computed: {
+    date() {
+      var time = this.newsiteminfo.time.split(' ')[0]
+      var date = time.split('-')
+      return date[date.length - 1]
+    },
+    month() {
+      var time = this.newsiteminfo.time.split(' ')[0]
+      return time.split(`-${this.date}`)[0]
+    }
   },
+
   methods: {
     handeldetail() {
       this.$router.push({ path: '/newsdetail', query: { newsId: this.newsiteminfo.id }})
@@ -75,13 +77,16 @@ export default {
             padding-left: 20px;
             border-left: 2px solid rgba(216,216,216,1);
             // height: 70px;
-            a{
+            width:462px;
+            .title{
               height:25px;
               font-size:$fontSize18;
               font-weight:400;
               color:rgba(74,74,74,1);
               line-height:25px;
+              display: block;
               cursor: pointer;
+              @include utils-ellipsis;
               // margin-bottom: 30px;
               &:hover{
                 text-decoration: underline;
