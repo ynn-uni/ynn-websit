@@ -18,6 +18,7 @@
           <NewsItem v-for="(item,index) of NewsList" :key="index" :newsiteminfo="item" />
         </div>
       </div>
+      <NewsList />
     </div>
     <div class="idea layout-width">
       <el-row class="layout-width">
@@ -153,12 +154,14 @@
 <script>
 import NewsInfo from '@/components/News/NewsInfo'
 import NewsItem from '@/components/News/NewsItem'
+import NewsList from './components/NewsList'
 import ProjectItem from '@/components/Recruit/ProjectItem'
 export default {
   name: 'Home',
   components: {
     NewsInfo,
     NewsItem,
+    NewsList,
     ProjectItem
   },
   data() {
