@@ -24,12 +24,8 @@
         </div>
         <div class="share">
           <div class="btn">
-            <!-- <button>点击报名</button> -->
-            <button
-              type="text"
-              @click="open"
-            >点击报名</button>
-            <button>分享</button>
+            <el-button type="primary" @click="open">点击报名</el-button>
+            <el-button @click="share">分享</el-button>
           </div>
           <div class="btn-share">
             <div class="looknum">
@@ -112,6 +108,11 @@ export default {
       var newEnd = end.split('-')
       this.start = `${newStart[0]}年${newStart[1]}月${newStart[2]}日`
       this.end = `${newEnd[0]}年${newEnd[1]}月${newEnd[2]}日`
+    },
+    share() {
+      var ftit = '药牛牛' // 分享出去得文章得标题
+      var flink = 'https://upload.jianshu.io/users/upload_avatars/13787061/439ae608-6717-435e-916c-8fe08ead865a?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp' // 分享出去logo
+      window.open('https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(document.location) + '?sharesource=qzone&title=' + ftit + '&pics=' + flink + '&summary=' + '')
     }
   }
 }
@@ -143,7 +144,6 @@ export default {
             font-weight:400;
             color:$colorContent;
             line-height:20px;
-            font-family:PingFangSC-Regular,PingFang SC;
           }
           span+span{
             color:$colorTitle;
@@ -168,18 +168,10 @@ export default {
             button{
               width:150px;
               height:45px;
-              background:rgba(54,174,173,1);
-              border:1px solid rgba(54,174,173,1);
-              color: #fff;
               font-size:14px;
-              font-weight:400;
-              line-height:20px;
-              cursor: pointer;
-              outline:none;
             }
             button+button{
               color: rgba(54,174,173,1);
-              background-color: #fff;
               margin-left: 15px;
             }
           }
