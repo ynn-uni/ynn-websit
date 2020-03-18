@@ -9,7 +9,6 @@
         <p>{{ firstNews.abstract }}</p>
         <div class="news-time">
           <span>{{ firstNews.created_at }}</span>
-
           <a @click="handeldetail">查看详情<i class="el-icon-arrow-right" /><i class="el-icon-arrow-right" /></a>
         </div>
       </div>
@@ -28,31 +27,29 @@
       </el-row>
 
     </div>
-    <div class="pagination">
-      <el-pagination
-        background
-        :page-sizes="[9, 18, 27, 36]"
-        :page-size="9"
-        layout="prev, pager, next,sizes"
-        :total="1000"
-        :hide-on-single-page="true"
-        @current-change="currentchange"
-        @size-change="sizechange"
-      />
-    </div>
-
+    <Pagination
+      :page-count="pageCount"
+      :page.sync="curPage"
+      :size.sync="size"
+      @pagination="geAllData"
+    />
   </div>
 </template>
 
 <script>
+import Pagination from '@/components/Pagination'
 import NewsInfo from '@/components/News/NewsInfo'
 export default {
   name: 'News',
   components: {
-    NewsInfo
+    NewsInfo,
+    Pagination
   },
   data() {
     return {
+      pageCount: 1,
+      curPage: 1,
+      size: 3,
       pageName: 'news',
       firstNews: {},
       NewsList: [
@@ -75,6 +72,15 @@ export default {
           'hot': 0,
           'created_at': '2020-03-13 08:03:49'
         }, {
+          'id': 5,
+          'title': '孩子生病 家长不能“凭经验”乱用药',
+          'cover': null,
+          'abstract': '孩子在成长过程中难免生病，有的家长觉得有些小病无关紧要，凭经验给孩子吃点药就可以了，这样的做法是不可取的。',
+          'clicks': 0,
+          'groom': 0,
+          'hot': 0,
+          'created_at': '2020-03-13 08:05:02'
+        }, {
           'id': 3,
           'title': '荣昌制药完成十亿元融资十余个生物新药在研',
           'cover': null,
@@ -93,6 +99,15 @@ export default {
           'hot': 0,
           'created_at': '2020-03-13 07:58:42'
         }, {
+          'id': 5,
+          'title': '孩子生病 家长不能“凭经验”乱用药',
+          'cover': null,
+          'abstract': '孩子在成长过程中难免生病，有的家长觉得有些小病无关紧要，凭经验给孩子吃点药就可以了，这样的做法是不可取的。',
+          'clicks': 0,
+          'groom': 0,
+          'hot': 0,
+          'created_at': '2020-03-13 08:05:02'
+        }, {
           'id': 1,
           'title': '功能治愈艾滋病 艾博卫泰要”鸡尾酒”配方',
           'cover': null,
@@ -106,18 +121,16 @@ export default {
   },
   mounted() {
     this.initData(this.NewsList)
+    this.geAllData()
   },
   methods: {
+    geAllData() {
+      this.pageCount += 1
+    },
     initData(data) {
       if (data.length <= 0) return
       this.firstNews = data[0]
       this.NewsList = data.slice(1)
-    },
-    currentchange(page) {
-      console.log('当前第：' + page)
-    },
-    sizechange(pagesize) {
-      console.log('pagesize：' + pagesize)
     },
     handeldetail() {
       this.$router.push({ path: '/newsdetail', query: { newsId: '123' }})
@@ -186,11 +199,6 @@ export default {
       flex-wrap: wrap;
       justify-content: space-between;
     }
-  .pagination{
-    text-align: center;
-    margin-bottom: 55px;
-
-  }
 }
 
 </style>

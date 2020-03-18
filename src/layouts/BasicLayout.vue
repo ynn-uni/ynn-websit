@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <page-header />
-    <page-content />
+    <page-content name="fade-transform" mode="out-in" />
     <page-footer />
   </div>
 </template>

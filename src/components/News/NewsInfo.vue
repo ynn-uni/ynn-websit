@@ -1,5 +1,5 @@
 <template>
-  <div class="news-left" :style="{paddingBottom:pagename=='news'?'50px':''}">
+  <div class="news-left">
     <el-card class="news-info" shadow="always" :body-style="{padding:'0px'}" @click.native="handeldetail(newsdata.id)">
       <img :src="require('./../../assets/images/home_09.gif')" />
       <div class="news-detail">
