@@ -1,11 +1,11 @@
 import { getAction } from '@/utils/request'
 
 export const getNewsList = (data = {}) => {
-  return getAction(`/Home/News/getNewsList`, data)
+  return getAction(`/Apis/Article/getArticleList`, data)
 }
 
 export const getNewsDetails = (data = {}) => {
-  return getAction(`/Home/News/getNewsDetails`, data)
+  return getAction(`/Apis/Article/getArticleDetails`, data)
 }
 export const getExpertList = (data = {}) => {
   return getAction(`/Home/News/getExpertList`, data)

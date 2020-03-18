@@ -151,6 +151,7 @@
 </template>
 
 <script>
+import { getNewsList } from '@/api'
 import NewsInfo from '@/components/News/NewsInfo'
 import NewsItem from '@/components/News/NewsItem'
 import ProjectItem from '@/components/Recruit/ProjectItem'
@@ -254,12 +255,16 @@ export default {
   },
   created() {
     // 只要前5条
-    this.initData(0)
+    this.initData()
   },
   methods: {
     initData() {
-      this.newsdata = this.NewsList[0]
-      this.NewsList = this.NewsList.slice(1)
+      getNewsList({ page: 1, size: 5 }).then((res) => {
+        const data = res.data
+        console.log(data)
+        this.newsdata = data[0]
+        this.NewsList = data.slice(1)
+      })
     },
     handelNews() {
       this.$router.push({ path: '/news' })

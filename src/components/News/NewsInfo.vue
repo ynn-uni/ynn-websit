@@ -42,13 +42,14 @@ export default {
   },
   methods: {
     initData(data) {
-      data.created_at = this.initDate(data.created_at)
+      data.created_at = this.initDate(this.newsdata.created_at)
       this.newsdata = data
     },
     handeldetail(newsId) {
       this.$router.push({ path: '/newsdetail', query: { newsId: newsId }})
     },
     initDate(data) {
+      console.log(data)
       return data.split(' ')[0]
     }
   }
