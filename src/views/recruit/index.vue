@@ -1,7 +1,7 @@
 <template>
   <div class="recruit layout-width">
     <el-row :gutter="45">
-      <el-col v-for="(item, index) in RecruitList" :key="index" :span="8">
+      <el-col v-for="(item, index) in RecruitList" :key="index" class="project-item" :span="8">
         <project-item :detail="item" :pagename="pageName" />
       </el-col>
     </el-row>
@@ -28,129 +28,77 @@ export default {
   },
   data() {
     return {
-      dataSource: [
+      RecruitList: [
         {
-          title: '「临床试验」琥珀酸曲格叻玎片「临床试验」琥珀酸曲格叻玎片',
-          content: '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-          startDate: '2019.10.22',
-          endDate: '2019.11.22',
-          image: '',
-          requireNum: 20
+          'id': 1,
+          'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
+          'cover': 'images\/20200314112540.png',
+          'start': '2020-03-14',
+          'end': '2020-03-31',
+          'amount': 15,
+          'sex': '不限',
+          'age': '18-75',
+          'condition': '晚期实体瘤患者',
+          'status': 1
         },
         {
-          title: '「临床试验」琥珀酸曲格叻玎片',
-          content: '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-          startDate: '2019.10.22',
-          endDate: '2019.11.22',
-          image: '',
-          requireNum: 20
+          'id': 2,
+          'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
+          'cover': 'images\/20200314112540.png',
+          'start': '2020-03-14',
+          'end': '2020-03-31',
+          'amount': 15,
+          'sex': '不限',
+          'age': '18-75',
+          'condition': '晚期实体瘤患者',
+          'status': 1
         },
         {
-          title: '「临床试验」琥珀酸曲格叻玎片',
-          content: '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-          startDate: '2019.10.22',
-          endDate: '2019.11.22',
-          image: '',
-          requireNum: 20
+          'id': 3,
+          'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
+          'cover': 'images\/20200314112540.png',
+          'start': '2020-03-14',
+          'end': '2020-03-31',
+          'amount': 15,
+          'sex': '不限',
+          'age': '18-75',
+          'condition': '晚期实体瘤患者',
+          'status': 1
         },
         {
-          title: '「临床试验」琥珀酸曲格叻玎片「临床试验」琥珀酸曲格叻玎片',
-          content: '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-          startDate: '2019.10.22',
-          endDate: '2019.11.22',
-          image: '',
-          requireNum: 20
-        },
-        {
-          title: '「临床试验」琥珀酸曲格叻玎片',
-          content: '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-          startDate: '2019.10.22',
-          endDate: '2019.11.22',
-          image: '',
-          requireNum: 20
-        },
-        {
-          title: '「临床试验」琥珀酸曲格叻玎片',
-          content: '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-          startDate: '2019.10.22',
-          endDate: '2019.11.22',
-          image: '',
-          requireNum: 20
+          'id': 3,
+          'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
+          'cover': 'images\/20200314112540.png',
+          'start': '2020-03-14',
+          'end': '2020-03-31',
+          'amount': 15,
+          'sex': '不限',
+          'age': '18-75',
+          'condition': '晚期实体瘤患者',
+          'status': 1
+        }, {
+          'id': 3,
+          'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
+          'cover': 'images\/20200314112540.png',
+          'start': '2020-03-14',
+          'end': '2020-03-31',
+          'amount': 15,
+          'sex': '不限',
+          'age': '18-75',
+          'condition': '晚期实体瘤患者',
+          'status': 1
         }
       ],
       pageName: 'recruit',
       pagenum: 1,
-      loading: false,
-      RecruitList: []
+      loading: false
     }
   },
   created() {
-    this.RecruitList = [
-      {
-        'id': 1,
-        'title': '「临床试验」琥珀酸曲格叻玎片1',
-        'cover': './../../assets/images/home_09.gif',
-        'brief': '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-        'start': '2019.10.22 00:00:00',
-        'end': '2019.11.22 23:59:59',
-        'amount': 20,
-        'time': '2019-10-20 14:09:20'
-      },
-      {
-        'id': 2,
-        'title': '「临床试验」琥珀酸曲格叻玎片2',
-        'cover': './../../assets/images/home_09.gif',
-        'brief': '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-        'start': '2019.10.22 00:00:00',
-        'end': '2019.11.22 23:59:59',
-        'amount': 20,
-        'time': '2019-10-20 14:09:20'
-      },
-      {
-        'id': 3,
-        'title': '「临床试验」琥珀酸曲格叻玎片3',
-        'cover': './../../assets/images/home_09.gif',
-        'brief': '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-        'start': '2019.10.22 00:00:00',
-        'end': '2019.11.22 23:59:59',
-        'amount': 20,
-        'time': '2019-10-20 14:09:20'
-      },
-      {
-        'id': 4,
-        'title': '「临床试验」琥珀酸曲格叻玎片4',
-        'cover': './../../assets/images/home_09.gif',
-        'brief': '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-        'start': '2019.10.22 00:00:00',
-        'end': '2019.11.22 23:59:59',
-        'amount': 20,
-        'time': '2019-10-20 14:09:20'
-      },
-      {
-        'id': 5,
-        'title': '「临床试验」琥珀酸曲格叻玎片5',
-        'cover': './../../assets/images/home_09.gif',
-        'brief': '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-        'start': '2019.10.22 00:00:00',
-        'end': '2019.11.22 23:59:59',
-        'amount': 20,
-        'time': '2019-10-20 14:09:20'
-      },
-      {
-        'id': 6,
-        'title': '「临床试验」琥珀酸曲格叻玎片6',
-        'cover': './../../assets/images/home_09.gif',
-        'brief': '「临床试验」琥珀酸曲格叻玎片酸曲格叻玎片招收志愿者',
-        'start': '2019.10.22 00:00:00',
-        'end': '2019.11.22 23:59:59',
-        'amount': 20,
-        'time': '2019-10-20 14:09:20'
-      }]
   },
   methods: {
     handelmore() {
       this.pagenum++
-      console.log(this.pagenum)
       this.loading = true
       setTimeout(() => {
         this.loading = false
@@ -163,6 +111,15 @@ export default {
 <style lang="scss" scoped>
   .recruit {
     padding-top: 50px;
+    .project-item {
+      position: relative;
+      top: 0px;
+      transition: all 0.3s linear;
+      &:hover{
+        top:-10px;
+      }
+
+    }
     .show-more{
       margin-bottom: 50px;
       display: flex;

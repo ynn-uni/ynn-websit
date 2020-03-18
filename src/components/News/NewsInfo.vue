@@ -1,12 +1,12 @@
 <template>
-  <div class="news-left">
-    <el-card class="news-info" :shadow="pagename=='news'?'hover':''" :body-style="{padding:'0px'}" @click.native="handeldetail(newsdata.id)">
+  <div class="news-left" :style="{paddingBottom:pagename=='news'?'50px':''}">
+    <el-card class="news-info" shadow="always" :body-style="{padding:'0px'}" @click.native="handeldetail(newsdata.id)">
       <img :src="require('./../../assets/images/home_09.gif')" />
       <div class="news-detail">
-        <h2>{{ data.title }}</h2>
-        <div class="news-content">{{ data.brief }}</div>
+        <h2>{{ newsdata.title }}</h2>
+        <div class="news-content">{{ newsdata.abstract }}</div>
         <div class="news-time">
-          {{ data.time }}
+          {{ newsdata.created_at }}
           <!-- <div>需求人数：{{ detail.requireNum }}人</div> -->
         </div>
       </div>
@@ -35,17 +35,21 @@ export default {
     }
   },
   computed: {
-    data() {
-      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-      this.newsdata.time = this.newsdata.time.split(' ')[0]
-      return this.newsdata
-    }
+
   },
   mounted() {
+    this.initData(this.newsdata)
   },
   methods: {
+    initData(data) {
+      data.created_at = this.initDate(data.created_at)
+      this.newsdata = data
+    },
     handeldetail(newsId) {
       this.$router.push({ path: '/newsdetail', query: { newsId: newsId }})
+    },
+    initDate(data) {
+      return data.split(' ')[0]
     }
   }
 }

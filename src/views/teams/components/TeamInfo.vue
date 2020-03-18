@@ -5,9 +5,9 @@
   <el-card :body-style="{ padding: '0px' }" class="team-info">
     <img :src="require('./../../../assets/images/team-info.png')" />
     <div class="teaminfo">
-      <h2>{{ detail.name }}</h2>
-      <h3>{{ detail.label }}</h3>
-      <p>{{ detail.dis }}</p>
+      <h2>{{ detail.truename }}</h2>
+      <h3>{{ detail.title }}</h3>
+      <p>{{ detail.content }}</p>
     </div>
   </el-card>
 </template>
@@ -32,6 +32,7 @@ export default {
         // cursor: pointer;
         margin-bottom: 50px;
         height: 443px;
+        overflow: hidden;
         image{
          width:370px;
          height:276px;
@@ -56,8 +57,9 @@ export default {
             font-weight:400;
             color:$colorContent;
             text-align: justify;
-            padding: 5px 18px;
-            padding-bottom: 15px;
+            padding: 0px 18px;
+            @include utils-ellipsis-clamp;
+            -webkit-line-clamp: 3;
            }
        }
     }

@@ -8,7 +8,7 @@
     <div class="news-item-detail">
       <!-- <router-link to="/newsdetail" @click="handel">这里是标题，这里放上新闻资讯标题</router-link> -->
       <a class="title" @click="handeldetail">{{ newsiteminfo.title }}</a>
-      <div class="news-item-content">{{ newsiteminfo.brief }}</div>
+      <div class="news-item-content">{{ newsiteminfo.abstract }}</div>
     </div>
   </div>
 </template>
@@ -32,12 +32,12 @@ export default {
   },
   computed: {
     date() {
-      var time = this.newsiteminfo.time.split(' ')[0]
+      var time = this.newsiteminfo.created_at.split(' ')[0]
       var date = time.split('-')
       return date[date.length - 1]
     },
     month() {
-      var time = this.newsiteminfo.time.split(' ')[0]
+      var time = this.newsiteminfo.created_at.split(' ')[0]
       return time.split(`-${this.date}`)[0]
     }
   },
@@ -87,7 +87,6 @@ export default {
               display: block;
               cursor: pointer;
               @include utils-ellipsis;
-              // margin-bottom: 30px;
               &:hover{
                 text-decoration: underline;
               }
@@ -98,7 +97,8 @@ export default {
               font-size: $fontSize14;
               line-height: 20px;
               color:rgba(155,155,155,1);
-              @include utils-ellipsis-clamp2;
+              @include utils-ellipsis-clamp;
+              -webkit-line-clamp: 2;
             }
           }
         }

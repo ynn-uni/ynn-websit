@@ -3,12 +3,13 @@
     class="project-item"
     :style="{marginBottom:pagename=='recruit'?'50px':''}"
     :body-style="{padding:'0px'}"
+    shadow="hover"
     @click.native="handeldetail(data.id)"
   >
     <img :src="require('./../../assets/images/home_09.gif')" />
     <div class="project-detail">
       <h2>{{ data.title }}</h2>
-      <div class="project-content">{{ data.brief }}</div>
+      <div class="project-content">{{ data.condition }}</div>
       <div class="project-info">
         <div>{{ data.start }} ~ {{ data.end }}</div>
         <div>需求人数：{{ data.amount }}人</div>
