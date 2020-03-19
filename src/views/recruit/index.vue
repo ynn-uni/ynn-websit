@@ -28,67 +28,7 @@ export default {
   },
   data() {
     return {
-      RecruitList: [
-        {
-          'id': 1,
-          'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
-          'cover': 'images\/20200314112540.png',
-          'start': '2020-03-14',
-          'end': '2020-03-31',
-          'amount': 15,
-          'sex': '不限',
-          'age': '18-75',
-          'condition': '晚期实体瘤患者',
-          'status': 1
-        },
-        {
-          'id': 2,
-          'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
-          'cover': 'images\/20200314112540.png',
-          'start': '2020-03-14',
-          'end': '2020-03-31',
-          'amount': 15,
-          'sex': '不限',
-          'age': '18-75',
-          'condition': '晚期实体瘤患者',
-          'status': 1
-        },
-        {
-          'id': 3,
-          'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
-          'cover': 'images\/20200314112540.png',
-          'start': '2020-03-14',
-          'end': '2020-03-31',
-          'amount': 15,
-          'sex': '不限',
-          'age': '18-75',
-          'condition': '晚期实体瘤患者',
-          'status': 1
-        },
-        {
-          'id': 3,
-          'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
-          'cover': 'images\/20200314112540.png',
-          'start': '2020-03-14',
-          'end': '2020-03-31',
-          'amount': 15,
-          'sex': '不限',
-          'age': '18-75',
-          'condition': '晚期实体瘤患者',
-          'status': 1
-        }, {
-          'id': 3,
-          'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
-          'cover': 'images\/20200314112540.png',
-          'start': '2020-03-14',
-          'end': '2020-03-31',
-          'amount': 15,
-          'sex': '不限',
-          'age': '18-75',
-          'condition': '晚期实体瘤患者',
-          'status': 1
-        }
-      ],
+      RecruitList: [],
       pageName: 'recruit',
       page: 1,
       size: 9,

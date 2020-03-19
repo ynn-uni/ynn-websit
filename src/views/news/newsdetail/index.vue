@@ -1,7 +1,7 @@
 <template>
   <div class="recruitdetail layout-width">
     <div class="recruit-info">
-      <img :src="require('./../../../assets/images/red1.png')" alt="" />
+      <img :src="dataSource.cover" alt="" />
       <div class="info">
         <div class="title">
           {{ dataSource.title }}
@@ -20,10 +20,10 @@
               <i class="el-icon-view" />
               {{ dataSource.clicks }}
             </div>
-            <div class="sharenum">
+            <!-- <div class="sharenum">
               <i class="el-icon-share" />
               28942
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

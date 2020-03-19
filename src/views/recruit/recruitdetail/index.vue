@@ -1,7 +1,7 @@
 <template>
   <div class="recruitdetail layout-width">
     <div class="recruit-info">
-      <img :src="require('./../../../assets/images/red2.png')" alt="" />
+      <img :src="dataSource.cover" alt="" />
       <!-- <img :src="RecruitDetails.cover" alt="" /> -->
       <div class="info">
         <div class="title">
@@ -13,7 +13,7 @@
         </div>
         <div class="type">
           <span>试验类型：</span>
-          <span>{{ dataSource.status }}</span>
+          <span>{{ dataSource.type }}</span>
         </div>
         <div class="type">
           <span>试验策划：</span>
@@ -25,17 +25,17 @@
         <div class="share">
           <div class="btn">
             <el-button type="primary" @click="open">点击报名</el-button>
-            <el-button @click="share">分享</el-button>
+            <!-- <el-button @click="share">分享</el-button> -->
           </div>
           <div class="btn-share">
             <div class="looknum">
               <i class="el-icon-view" />
               {{ dataSource.amount }}
             </div>
-            <div class="sharenum">
+            <!-- <div class="sharenum">
               <i class="el-icon-share" />
               28942
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
     <div class="introduce" v-html="dataSource.content" />
   </div>
 </template>
-
+<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
 <script>
 import { getRecruitDetails } from '@/api'
 export default {
@@ -101,9 +101,10 @@ export default {
       this.end = `${newEnd[0]}年${newEnd[1]}月${newEnd[2]}日`
     },
     share() {
+      console.log(encodeURIComponent(document.location))
       var ftit = '药牛牛' // 分享出去得文章得标题
       var flink = 'https://upload.jianshu.io/users/upload_avatars/13787061/439ae608-6717-435e-916c-8fe08ead865a?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp' // 分享出去logo
-      window.open('https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(document.location) + '?sharesource=qzone&title=' + ftit + '&pics=' + flink + '&summary=' + '')
+      window.open(`http://connect.qq.com/widget/shareqq/index.html?url=${encodeURIComponent(document.location)}&sharesource=qzone&title=${ftit}&pics=${flink}&summary=你的分享描述&desc=你的分享简述`)
     }
   }
 }
