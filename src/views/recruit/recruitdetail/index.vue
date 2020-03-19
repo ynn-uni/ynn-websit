@@ -45,7 +45,7 @@
 </template>
 
 <script>
-
+import { getRecruitDetails } from '@/api'
 export default {
   name: 'Recruit',
   components: {
@@ -53,28 +53,13 @@ export default {
   },
   data() {
     return {
-      dataSource:
-         {
-           'id': 1,
-           'title': '评价JMT101治疗晚期实体肿瘤的安全性、耐受性以及药物代谢动力学的I期临床研究',
-           'cover': 'images\/20200314112540.png',
-           'start': '2020-03-14',
-           'end': '2020-03-31',
-           'amount': 15,
-           'sex': '不限',
-           'age': '18-75',
-           'condition': '晚期实体瘤患者',
-           'content': '<p><span style="font-size: 0.75em;">尊敬的患者：<\/span><\/p><p><span style="font-size: 0.75em;">您好！我院正在进行一项方案名称：评价JMT101（重组人源化抗表皮生长因子受体单克隆抗体注射液）治疗晚期实体肿瘤的安全性 、 耐受性以及药物代谢动力学的 I 期临床研究 ， 方案 编 号 ：JMT101-ECL，针对晚期实体瘤患者的临床研究。研究已经得到重庆大学附属肿瘤医院伦理委员会的批准。本项研究的主要研究者是我院 辇伟奇 教授。预计招募 15 名患者。<\/span><\/p><p><span style="font-size: 0.75em;">如果您符合下述条件：<\/span><\/p><p><span style="font-size: 0.75em;">（1）年龄18-75周岁（含），男女均可；<\/span><\/p><p><span style="font-size: 0.75em;">（2）经病理组织学和\/或细胞学确诊的晚期实体瘤患者，（若为结直肠癌患者其肿瘤基因 RAS 为野生型（WT）型），并且至少一种针对晚期疾病标准疗法治疗无效，或患者拒绝标准疗法后尚无有效的治疗方法（JMT101单药）；<\/span><\/p><p><span style="font-size: 0.75em;">（3）或经病理组织学和\/或细胞学确诊、具有可测量病灶、转移性或局部晚期不可根治性切除的结 直肠癌患者（JMT101联合方案）；<\/span><\/p><p><span style="font-size: 0.75em;">（4）愿意参与这项研究。<\/span><\/p><p><span style="font-size: 0.75em;">您是否能够参加本研究，还需要满足其他条件，研究医生将跟您详细沟通。若您有意参加，请联系<\/span><\/p><p><span style="font-size: 0.75em;">研究医生：王医生\/黄医生\/邓医生 <\/span><\/p><p><span style="font-size: 0.75em;">电话：023-65079277 <\/span><\/p><p><span style="font-size: 0.75em;">或您可直接前往我院Ⅰ期临床试验中心（内科医技楼22楼）咨询<span style=""><br><\/span><\/span><\/p><p><span style="font-size: 0.75em;">工作日：上午8:00-12:00    下午：14:30-17:30<\/span><\/p>',
-           'tel': '023-65079277',
-           'status': 1
-         },
-      RecruitDetails: {},
+      dataSource: {},
       start: '',
       end: ''
     }
   },
-  created() {
-    console.log('recruitId:' + this.$route.query.recruitId)
+  mounted() {
+    this.getDeatilData()
   },
   methods: {
     open() {
@@ -98,10 +83,18 @@ export default {
         }
       })
     },
-    initDate() {
+    getDeatilData() {
+      const id = this.$route.query.recruitId
+      getRecruitDetails({ id }).then((res) => {
+        const data = res
+        this.dataSource = data
+        this.initDate(this.dataSource)
+      })
+    },
+    initDate(data) {
       // 整理时间格式
-      var start = this.RecruitDetails.start.split(' ')[0]
-      var end = this.RecruitDetails.end.split(' ')[0]
+      var start = data.start.split(' ')[0]
+      var end = data.end.split(' ')[0]
       var newStart = start.split('-')
       var newEnd = end.split('-')
       this.start = `${newStart[0]}年${newStart[1]}月${newStart[2]}日`

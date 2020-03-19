@@ -5,7 +5,7 @@
         <project-item :detail="item" :pagename="pageName" />
       </el-col>
     </el-row>
-    <el-card shadow="always" class="show-more" :body-style="{padding:'5px'}">
+    <el-card v-if="RecruitList.length>=9" shadow="always" class="show-more" :body-style="{padding:'5px'}">
       <div v-show="!loading" class="more" @click="handelmore">
         加载更多<i class="el-icon-arrow-right" /><i class="el-icon-arrow-right" />
       </div>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-
+import { getRecruitList } from '@/api'
 import ProjectItem from '@/components/Recruit/ProjectItem'
 export default {
   name: 'Recruit',
@@ -90,15 +90,29 @@ export default {
         }
       ],
       pageName: 'recruit',
-      pagenum: 1,
+      page: 1,
+      size: 9,
       loading: false
     }
   },
-  created() {
+  mounted() {
+    this.getData()
   },
   methods: {
+    getData() {
+      getRecruitList({ page: this.page, size: this.size }).then((res) => {
+        const data = res.data
+        if (this.page > 1) {
+          data.forEach(val => {
+            this.RecruitList.push(val)
+          })
+        }
+        this.RecruitList = data
+      })
+    },
     handelmore() {
-      this.pagenum++
+      this.page++
+      this.getData()
       this.loading = true
       setTimeout(() => {
         this.loading = false

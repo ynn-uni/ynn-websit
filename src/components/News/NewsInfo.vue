@@ -1,12 +1,12 @@
 <template>
   <div class="news-left">
-    <el-card class="news-info" shadow="always" :body-style="{padding:'0px'}" @click.native="handeldetail(newsdata.id)">
+    <el-card class="news-info" shadow="always" :body-style="{padding:'0px'}" @click.native="handeldetail(data.id)">
       <img :src="require('./../../assets/images/home_09.gif')" />
       <div class="news-detail">
-        <h2>{{ newsdata.title }}</h2>
-        <div class="news-content">{{ newsdata.abstract }}</div>
+        <h2>{{ data.title }}</h2>
+        <div class="news-content">{{ data.abstract }}</div>
         <div class="news-time">
-          {{ newsdata.created_at }}
+          {{ data.created_at }}
           <!-- <div>需求人数：{{ detail.requireNum }}人</div> -->
         </div>
       </div>
@@ -35,21 +35,22 @@ export default {
     }
   },
   computed: {
-
+    data() {
+      const data = this.newsdata
+      if (!data.created_at) return ''
+      data.created_at = this.initDate(data.created_at)
+      return data
+    }
   },
   mounted() {
-    this.initData(this.newsdata)
+
   },
   methods: {
-    initData(data) {
-      data.created_at = this.initDate(this.newsdata.created_at)
-      this.newsdata = data
-    },
+
     handeldetail(newsId) {
       this.$router.push({ path: '/newsdetail', query: { newsId: newsId }})
     },
     initDate(data) {
-      console.log(data)
       return data.split(' ')[0]
     }
   }

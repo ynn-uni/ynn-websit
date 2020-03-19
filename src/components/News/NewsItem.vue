@@ -32,11 +32,13 @@ export default {
   },
   computed: {
     date() {
+      if (this.newsiteminfo.length <= 0) return ''
       var time = this.newsiteminfo.created_at.split(' ')[0]
       var date = time.split('-')
       return date[date.length - 1]
     },
     month() {
+      if (this.newsiteminfo.length <= 0) return ''
       var time = this.newsiteminfo.created_at.split(' ')[0]
       return time.split(`-${this.date}`)[0]
     }

@@ -8,7 +8,7 @@
       </el-row>
 
     </div>
-    <el-card shadow="always" class="show-more" :body-style="{padding:'5px'}">
+    <el-card v-if="teamList.length>=9" shadow="always" class="show-more" :body-style="{padding:'5px'}">
       <div v-show="!loading" class="more" @click="handelmore">
         加载更多<i class="el-icon-arrow-right" /><i class="el-icon-arrow-right" />
       </div>
@@ -23,7 +23,7 @@
 
 <script>
 import TeamInfo from './components/TeamInfo'
-
+import { getExpertList } from '@/api'
 export default {
   name: 'Recruit',
   components: {
@@ -68,14 +68,23 @@ export default {
           'content': '辇伟奇，医学博士，生物工程学博士后，硕士研究生导师，Ⅰ期病房科主任兼消化肿瘤内科副主任，主任医师；重庆市中青年医学高端人才，美国得克萨斯大学休斯顿健康科学中心国家公派访问学者'
         }
       ],
-      pagenum: 1,
+      page: 1,
+      size: 9,
       loading: false
     }
   },
+  mounted() {
+    this.getTeamData()
+  },
   methods: {
+    getTeamData() {
+      getExpertList({ page: this.page, size: this.size }).then((res) => {
+        const data = res.data
+        this.teamList = data
+      })
+    },
     handelmore() {
-      this.pagenum++
-      console.log(this.pagenum)
+      this.page++
       this.loading = true
       setTimeout(() => {
         this.loading = false
