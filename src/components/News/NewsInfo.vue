@@ -1,7 +1,7 @@
 <template>
   <div class="news-left">
     <el-card class="news-info" shadow="always" :body-style="{padding:'0px'}" @click.native="handeldetail(data.id)">
-      <img :src="data.cover&&baseUrl+data.cover" />
+      <img :src="data.cover&&baseUrl+data.cover" :class="pagename=='news'?'img':''" />
       <div class="news-detail">
         <h2>{{ data.title }}</h2>
         <div class="news-content">{{ data.abstract }}</div>
@@ -63,7 +63,12 @@ export default {
         .el-card{
            color:rgba(155,155,155,1);
            img{
+            height: 309px;
             width: 100%;
+            object-fit: cover;
+          }
+          .img{
+            height: 209px;
           }
           .news-detail {
               padding: 14px;

@@ -77,10 +77,12 @@ export default {
       margin-top: 30px;
       margin-bottom: 40px;
       display: flex;
-      justify-content: space-between;
       img{
-        width:440px;
-        height:100%;
+        max-width:440px;
+        position: relative;
+        top: 0;
+        bottom: 0;
+        object-fit: cover;
       }
       .info{
         width: 700px;
@@ -88,6 +90,7 @@ export default {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+        margin-left: 50px;
         .title{
           font-size:24px;
           font-weight:400;
@@ -112,6 +115,7 @@ export default {
           color:rgba(74,74,74,1);
           line-height:20px;
           margin-top: 10px;
+          text-align: justify;
         }
         .share{
           display: flex;

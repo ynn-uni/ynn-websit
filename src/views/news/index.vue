@@ -3,10 +3,12 @@
     <div class="news-info">
       <img :src="firstNews.cover&&baseUrl+firstNews.cover" alt="" />
       <div class="ni-right">
-        <h2>
-          {{ firstNews.title }}
-        </h2>
-        <p>{{ firstNews.abstract }}</p>
+        <div>
+          <h2>
+            {{ firstNews.title }}
+          </h2>
+          <p>{{ firstNews.abstract }}</p>
+        </div>
         <div class="news-time">
           <span>{{ firstNews.created_at }}</span>
           <a @click="handeldetail(firstNews.id)">查看详情<i class="el-icon-arrow-right" /><i class="el-icon-arrow-right" /></a>
@@ -92,13 +94,19 @@ export default {
   margin-top: 50px;
   .news-info{
     display: flex;
-    justify-content: space-between;
     img{
-      width:600px;
-      height:315px;
+      max-width:400px;
+      position: relative;
+      top: 0;
+      bottom: 0;
+      object-fit: cover;
     }
     .ni-right{
-      width: 538px;
+      // width: 538px;
+      margin-left: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       h2{
         font-size:24px;
         font-weight:400;
@@ -112,7 +120,6 @@ export default {
         color:$colorContent;
         line-height:26px;
         text-align: justify;
-        height: 212px;
         @include utils-ellipsis-clamp;
         -webkit-line-clamp: 8;
       }

@@ -62,9 +62,11 @@ export default {
   color: #9b9b9b;
   cursor: pointer;
 
-  img {
-    width: 100%;
-  }
+  img{
+      height: 209px;
+      width: 100%;
+      object-fit: cover;
+    }
   .project-detail {
     padding: 14px;
     h2 {

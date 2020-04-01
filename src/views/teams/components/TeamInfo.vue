@@ -36,13 +36,15 @@ export default {
 <style lang="scss" scoped>
     .team-info::v-deep{
         // cursor: pointer;
-        margin-bottom: 50px;
-        height: 443px;
+        height: 423px;
         overflow: hidden;
-        image{
-         width:370px;
+        text-align: center;
+        padding: 10px;
+        img{
+        //  width:370px;
          height:276px;
-         vertical-align: middle;
+         vertical-align: top;
+         object-fit: cover;
         }
        .teaminfo{
            text-align: center;
@@ -60,7 +62,7 @@ export default {
            }
            >p{
              overflow: hidden;
-             height: 50px;
+             height: 60px;
            }
            span{
             display: block;

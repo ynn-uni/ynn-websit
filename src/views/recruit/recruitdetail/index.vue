@@ -119,13 +119,15 @@ export default {
       display: flex;
       justify-content: space-between;
       img{
-        width:440px;
+        // max-width:440px;
         position: relative;
         top: 0;
         bottom: 0;
+        object-fit: cover;
       }
       .info{
-        width: 700px;
+        margin-left: 50px;
+        // width: 700px;
         .title{
           font-size:24px;
           font-weight:400;
@@ -150,7 +152,7 @@ export default {
           color:$colorTitle;
           line-height:20px;
           margin-top: 10px;
-          height: 60px;
+          max-height: 60px;
           @include utils-ellipsis-clamp;
           -webkit-line-clamp: 3;
         }
