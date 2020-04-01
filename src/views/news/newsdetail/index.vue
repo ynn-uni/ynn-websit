@@ -163,7 +163,6 @@ export default {
     }
     .introduce{
       padding-bottom: 40px;
-      font-size: 20px;
       color: #9b9b9b;
 
     }

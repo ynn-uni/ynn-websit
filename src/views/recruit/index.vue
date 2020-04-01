@@ -46,14 +46,16 @@ export default {
           data.forEach(val => {
             this.RecruitList.push(val)
           })
+        } else {
+          this.RecruitList = data
         }
-        this.RecruitList = data
       })
     },
     handelmore() {
       this.page++
       this.getData()
       this.loading = true
+      this.getData()
       setTimeout(() => {
         this.loading = false
       }, 1000)

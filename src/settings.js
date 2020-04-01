@@ -1,3 +1,3 @@
 module.exports = {
-  title: 'Vue Boilerplate'
+  title: '药牛牛'
 }

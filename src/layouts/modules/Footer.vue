@@ -40,7 +40,7 @@
         </el-row>
       </div>
       <div class="qrcode">
-        <img src />
+        <img src="@/assets/images/erweima.png" />
         <span>药牛牛</span>
       </div>
     </div>
@@ -102,12 +102,15 @@ export default {
     }
     .qrcode {
       position: absolute;
-      top: 14px;
+      top: 10px;
       right: 0;
       width: 100px;
       height: 130px;
       text-align: center;
       background: #fff;
+      padding-top: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
       img {
         width: 100px;
         height: 100px;

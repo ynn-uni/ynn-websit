@@ -2,7 +2,7 @@
 
   <div class="home">
     <div class="home-slide">
-      <img :src="require('./../../assets/images/home_02.gif')" />
+      <img :src="require('./../../assets/images/home.jpg')" />
     </div>
     <div class="news layout-width">
       <div class="news-title">
@@ -46,57 +46,36 @@
         </el-col>
         <el-col :span="4">
           <div class="grid-content idea-item">
-            <img :src="require('./../../assets/images/home_icon.png')" alt="" />
+            <div class="img">
+              <img :src="require('./../../assets/images/new.png')" alt="" />
+            </div>
             <p class="idea-line" />
             <h2>创新</h2>
             <span>INNOVATE</span>
-          </div>
-          <div class="idea-hover">
-            <h2>创新</h2>
-            <span>INNOVATE</span>
-            <p class="hover-line" />
-            <div class="idea-content">
-              <p>专业化医疗环境</p>
-              <p>高素质管理人才</p>
-              <p>专业化医疗团队</p>
-            </div>
           </div>
         </el-col>
         <el-col :span="4">
           <div class="grid-content idea-item">
-            <img :src="require('./../../assets/images/home_icon.png')" alt="" />
-            <p class="idea-line" />
-            <h2>创新</h2>
-            <span>INNOVATE</span>
-          </div>
-          <div class="idea-hover">
-            <h2>创新</h2>
-            <span>INNOVATE</span>
-            <p class="hover-line" />
-            <div class="idea-content">
-              <p>专业化医疗环境</p>
-              <p>高素质管理人才</p>
-              <p>专业化医疗团队</p>
+            <div class="img">
+              <img :src="require('./../../assets/images/all.png')" alt="" />
             </div>
+
+            <p class="idea-line" />
+            <h2>共赢</h2>
+            <span>ALL-WIN</span>
           </div>
         </el-col>
         <el-col :span="4">
           <div class="grid-content idea-item">
-            <img :src="require('./../../assets/images/home_icon.png')" alt="" />
-            <p class="idea-line" />
-            <h2>创新</h2>
-            <span>INNOVATE</span>
-          </div>
-          <div class="idea-hover">
-            <h2>创新</h2>
-            <span>INNOVATE</span>
-            <p class="hover-line" />
-            <div class="idea-content">
-              <p>专业化医疗环境</p>
-              <p>高素质管理人才</p>
-              <p>专业化医疗团队</p>
+            <div class="img">
+              <img :src="require('./../../assets/images/he.png')" alt="" />
             </div>
+
+            <p class="idea-line" />
+            <h2>合作</h2>
+            <span>HEALTHY</span>
           </div>
+
         </el-col>
 
       </el-row>
@@ -301,7 +280,13 @@ export default {
           display: flex;
           flex-direction: column;
           align-items: center;
-
+          .img{
+            height: 72px;
+            width: 72px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+          }
           p{
             // padding: 0;
             margin: 14px 0;
@@ -333,8 +318,7 @@ export default {
             justify-content: center;
             background-color: rgba(51,209,208,1);
             color: #fff;
-            opacity: 0;
-            transition: all 0.2s linear;
+
             h2{
               font-size:$fontSize18;
               font-weight:400;

@@ -2,13 +2,17 @@
   <!-- <el-card shadow="always" class="teaminfo">
        <img :src="require('./../../../assets/images/team-info.png')" />
     </el-card>  -->
+
   <el-card :body-style="{ padding: '0px' }" class="team-info">
-    <img :src="require('./../../../assets/images/team-info.png')" />
+
+    <img :src="detail.cover" />
     <div class="teaminfo">
       <h2>{{ detail.truename }}</h2>
       <h3>{{ detail.title }}</h3>
-      <p>{{ detail.content }}</p>
+
+      <p v-html="detail.content" />
     </div>
+
   </el-card>
 </template>
 
@@ -28,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .team-info{
+    .team-info::v-deep{
         // cursor: pointer;
         margin-bottom: 50px;
         height: 443px;
@@ -52,7 +56,12 @@ export default {
             color:$colorTitle;
             margin: 10px 0
            }
-           p{
+           >p{
+             overflow: hidden;
+             height: 50px;
+           }
+           span{
+            display: block;
             font-size:$fontSize14;
             font-weight:400;
             color:$colorContent;

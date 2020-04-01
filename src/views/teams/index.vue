@@ -3,7 +3,17 @@
     <div class="team-list">
       <el-row :gutter="45">
         <el-col v-for="(item, index) in teamList" :key="index" :span="8">
-          <team-info :detail="item" />
+
+          <el-popover
+            placement="right"
+            width="400"
+            trigger="hover"
+            content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+          >
+            <div v-html="item.content" />
+            <team-info slot="reference" :detail="item" />
+
+          </el-popover>
         </el-col>
       </el-row>
 
@@ -31,43 +41,7 @@ export default {
   },
   data() {
     return {
-      teamList: [
-        {
-          'id': 1,
-          'truename': '辇伟奇',
-          'title': '主任医师',
-          'cover': 'images\/thumb_160_240_20190326060232473.jpg',
-          'content': '辇伟奇，医学博士，生物工程学博士后，硕士研究生导师，Ⅰ期病房科主任兼消化肿瘤内科副主任，主任医师；重庆市中青年医学高端人才，美国得克萨斯大学休斯顿健康科学中心国家公派访问学者'
-        },
-        {
-          'id': 1,
-          'truename': '辇伟奇',
-          'title': '主任医师',
-          'cover': 'images\/thumb_160_240_20190326060232473.jpg',
-          'content': '辇伟奇，医学博士，生物工程学博士后，硕士研究生导师，Ⅰ期病房科主任兼消化肿瘤内科副主任，主任医师；重庆市中青年医学高端人才，美国得克萨斯大学休斯顿健康科学中心国家公派访问学者'
-        },
-        {
-          'id': 1,
-          'truename': '辇伟奇',
-          'title': '主任医师',
-          'cover': 'images\/thumb_160_240_20190326060232473.jpg',
-          'content': '辇伟奇，医学博士，生物工程学博士后，硕士研究生导师，Ⅰ期病房科主任兼消化肿瘤内科副主任，主任医师；重庆市中青年医学高端人才，美国得克萨斯大学休斯顿健康科学中心国家公派访问学者'
-        },
-        {
-          'id': 1,
-          'truename': '辇伟奇',
-          'title': '主任医师',
-          'cover': 'images\/thumb_160_240_20190326060232473.jpg',
-          'content': '辇伟奇，医学博士，生物工程学博士后，硕士研究生导师，Ⅰ期病房科主任兼消化肿瘤内科副主任，主任医师；重庆市中青年医学高端人才，美国得克萨斯大学休斯顿健康科学中心国家公派访问学者'
-        },
-        {
-          'id': 1,
-          'truename': '辇伟奇',
-          'title': '主任医师',
-          'cover': 'images\/thumb_160_240_20190326060232473.jpg',
-          'content': '辇伟奇，医学博士，生物工程学博士后，硕士研究生导师，Ⅰ期病房科主任兼消化肿瘤内科副主任，主任医师；重庆市中青年医学高端人才，美国得克萨斯大学休斯顿健康科学中心国家公派访问学者'
-        }
-      ],
+      teamList: [],
       page: 1,
       size: 9,
       loading: false
@@ -80,12 +54,19 @@ export default {
     getTeamData() {
       getExpertList({ page: this.page, size: this.size }).then((res) => {
         const data = res.data
-        this.teamList = data
+        if (this.page > 1) {
+          data.forEach(val => {
+            this.teamList.push(val)
+          })
+        } else {
+          this.teamList = data
+        }
       })
     },
     handelmore() {
       this.page++
       this.loading = true
+      this.getTeamData()
       setTimeout(() => {
         this.loading = false
       }, 1000)
