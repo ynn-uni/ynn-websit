@@ -5,7 +5,7 @@
 
   <el-card :body-style="{ padding: '0px' }" class="team-info">
 
-    <img :src="detail.cover" />
+    <img :src="detail.cover&&baseUrl+detail.cover" />
     <div class="teaminfo">
       <h2>{{ detail.truename }}</h2>
       <h3>{{ detail.title }}</h3>
@@ -26,7 +26,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      baseUrl: process.env.VUE_APP_STATIC_IMG
+    }
   }
 }
 </script>

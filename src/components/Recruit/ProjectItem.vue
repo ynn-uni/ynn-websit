@@ -6,10 +6,11 @@
     shadow="hover"
     @click.native="handeldetail(data.id)"
   >
-    <img :src="require('./../../assets/images/home_09.gif')" />
+    <!-- <img :src="require('./../../assets/images/home_09.gif')" /> -->
+    <img :src="data.cover&&baseUrl+data.cover" />
     <div class="project-detail">
       <h2>{{ data.title }}</h2>
-      <div class="project-content">{{ data.condition }}</div>
+      <div class="project-content">{{ data.condition|' ' }}</div>
       <div class="project-info">
         <div>{{ data.start }} ~ {{ data.end }}</div>
         <div>需求人数：{{ data.amount }}人</div>
@@ -34,7 +35,8 @@ export default {
   data() {
     return {
       start: '',
-      end: ''
+      end: '',
+      baseUrl: process.env.VUE_APP_STATIC_IMG
     }
   },
   computed: {
@@ -73,7 +75,8 @@ export default {
     }
     .project-content {
       margin: 8px 0;
-      @include utils-ellipsis-clamp2;
+      height: 20px;
+      @include utils-ellipsis;
     }
     .project-info {
       display: flex;

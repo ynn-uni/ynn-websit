@@ -1,7 +1,7 @@
 <template>
   <div class="news layout-width">
     <div class="news-info">
-      <img :src="require('./../../assets/images/news-info.png')" alt="" />
+      <img :src="firstNews.cover&&baseUrl+firstNews.cover" alt="" />
       <div class="ni-right">
         <h2>
           {{ firstNews.title }}
@@ -28,6 +28,7 @@
 
     </div>
     <Pagination
+      v-if="pageCount>1"
       :page-count="pageCount"
       :page.sync="curPage"
       :size.sync="size"
@@ -53,7 +54,8 @@ export default {
       size: 10,
       pageName: 'news',
       firstNews: {},
-      NewsList: []
+      NewsList: [],
+      baseUrl: process.env.VUE_APP_STATIC_IMG
     }
   },
   mounted() {
@@ -69,9 +71,14 @@ export default {
     },
     initData(data) {
       if (data.length <= 0) return
+      // if (this.curPage === 1) {
       this.firstNews = data[0]
       this.firstNews.created_at = data[0].created_at.split(' ')[0]
       this.NewsList = data.slice(1)
+      // } else {
+      //   this.NewsList = data
+      // }
+      // this.NewsList = data
     },
     handeldetail(id) {
       this.$router.push({ path: '/newsdetail', query: { newsId: id }})

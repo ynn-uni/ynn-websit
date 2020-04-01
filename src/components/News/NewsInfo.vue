@@ -1,7 +1,7 @@
 <template>
   <div class="news-left">
     <el-card class="news-info" shadow="always" :body-style="{padding:'0px'}" @click.native="handeldetail(data.id)">
-      <img :src="require('./../../assets/images/home_09.gif')" />
+      <img :src="data.cover&&baseUrl+data.cover" />
       <div class="news-detail">
         <h2>{{ data.title }}</h2>
         <div class="news-content">{{ data.abstract }}</div>
@@ -31,7 +31,8 @@ export default {
   },
   data() {
     return {
-      time: '1'
+      time: '1',
+      baseUrl: process.env.VUE_APP_STATIC_IMG
     }
   },
   computed: {

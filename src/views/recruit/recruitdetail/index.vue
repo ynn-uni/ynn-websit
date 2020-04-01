@@ -1,7 +1,7 @@
 <template>
   <div class="recruitdetail layout-width">
     <div class="recruit-info">
-      <img :src="dataSource.cover" alt="" />
+      <img :src="dataSource.cover&&baseUrl+dataSource.cover" alt="" />
       <!-- <img :src="RecruitDetails.cover" alt="" /> -->
       <div class="info">
         <div class="title">
@@ -29,7 +29,7 @@
           </div>
           <div class="btn-share">
             <div class="looknum">
-              <i class="el-icon-view" />
+              需求人数：
               {{ dataSource.amount }}
             </div>
             <!-- <div class="sharenum">
@@ -55,7 +55,8 @@ export default {
     return {
       dataSource: {},
       start: '',
-      end: ''
+      end: '',
+      baseUrl: process.env.VUE_APP_STATIC_IMG
     }
   },
   mounted() {
@@ -119,7 +120,9 @@ export default {
       justify-content: space-between;
       img{
         width:440px;
-        height:100%;
+        position: relative;
+        top: 0;
+        bottom: 0;
       }
       .info{
         width: 700px;

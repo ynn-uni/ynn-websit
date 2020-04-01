@@ -34,8 +34,8 @@
             <span>INNOVATE</span>
           </div>
           <div class="idea-hover">
-            <h2>创新</h2>
-            <span>INNOVATE</span>
+            <h2>专业</h2>
+            <span>PROFESSION</span>
             <p class="hover-line" />
             <div class="idea-content">
               <p>专业化医疗环境</p>
@@ -191,7 +191,7 @@ export default {
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: url(./../../assets/images/home_02.gif);
+      background-image: url(./../../assets/images/home.jpg);
       background-repeat: no-repeat;
       background-size: contain;
     }

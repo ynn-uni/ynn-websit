@@ -1,7 +1,7 @@
 <template>
   <div class="recruitdetail layout-width">
     <div class="recruit-info">
-      <img :src="dataSource.cover" alt="" />
+      <img :src="dataSource.cover&&baseUrl+dataSource.cover" alt="" />
       <div class="info">
         <div class="title">
           {{ dataSource.title }}
@@ -41,7 +41,8 @@ export default {
   },
   data() {
     return {
-      dataSource: {}
+      dataSource: {},
+      baseUrl: process.env.VUE_APP_STATIC_IMG
 
     }
   },
