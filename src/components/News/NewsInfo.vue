@@ -7,7 +7,10 @@
         <div class="news-content">{{ data.abstract }}</div>
         <div class="news-time">
           {{ data.created_at }}
-          <!-- <div>需求人数：{{ detail.requireNum }}人</div> -->
+          <div class="looknum">
+            <i class="el-icon-view" />
+            {{ data.clicks }}
+          </div>
         </div>
       </div>
     </el-card>
@@ -84,7 +87,7 @@ export default {
                 color: #9b9b9b;
                 @include utils-ellipsis-clamp2;
               }
-              .new-time {
+              .news-time {
                 color:rgba(155,155,155,1);
                 display: flex;
                 justify-content: space-between;
