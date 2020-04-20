@@ -54,37 +54,11 @@
             <span>{{ item.dis }}</span>
           </div>
         </el-col>
-        <!-- <el-col :span="4">
-          <div class="grid-content idea-item">
-            <div class="img">
-              <img :src="require('./../../assets/images/all.png')" alt="" />
-            </div>
-
-            <p class="idea-line" />
-            <h2>共赢</h2>
-            <span>ALL-WIN</span>
-          </div>
-        </el-col>
-        <el-col :span="4">
-          <div class="grid-content idea-item">
-            <div class="img">
-              <img :src="require('./../../assets/images/he.png')" alt="" />
-            </div>
-
-            <p class="idea-line" />
-            <h2>合作</h2>
-            <span>HEALTHY</span>
-          </div>
-
-        </el-col> -->
-
       </el-row>
-
     </div>
     <div class="recruit layout-width">
       <div class="recruit-title">
         <h2>报名招募</h2>
-        <p />
         <span>REGISTRATION RECRUIT</span>
       </div>
       <div class="recruit-list">
@@ -97,7 +71,6 @@
     </div>
     <div class="chooseus">
       <img :src="require('./../../assets/images/home_02d_02.gif')" />
-
     </div>
     <div class="introduce layout-width">
       <div class="introduce-title">
