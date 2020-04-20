@@ -44,17 +44,17 @@
             </div>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col v-for="(item,index) in idealist" :key="index" :span="4">
           <div class="grid-content idea-item">
             <div class="img">
-              <img :src="require('./../../assets/images/new.png')" alt="" />
+              <img :src="item.cover" alt="" />
             </div>
             <p class="idea-line" />
-            <h2>创新</h2>
-            <span>INNOVATE</span>
+            <h2>{{ item.title }}</h2>
+            <span>{{ item.dis }}</span>
           </div>
         </el-col>
-        <el-col :span="4">
+        <!-- <el-col :span="4">
           <div class="grid-content idea-item">
             <div class="img">
               <img :src="require('./../../assets/images/all.png')" alt="" />
@@ -76,7 +76,7 @@
             <span>HEALTHY</span>
           </div>
 
-        </el-col>
+        </el-col> -->
 
       </el-row>
 
@@ -146,7 +146,24 @@ export default {
       NewsList: [],
       newsdata: {},
       RecruitList: [],
-      pageName: 'home'
+      pageName: 'home',
+      idealist: [
+        {
+          title: '创新',
+          cover: './../../assets/images/new.png',
+          dis: 'INNOVATE'
+        },
+        {
+          title: '共赢',
+          cover: './../../assets/images/all.png',
+          dis: 'ALL-WIN'
+        },
+        {
+          title: '合作',
+          cover: './../../assets/images/he.png',
+          dis: 'HEALTHY'
+        }
+      ]
     }
   },
   created() {
