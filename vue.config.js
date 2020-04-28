@@ -34,14 +34,14 @@ module.exports = {
       // change xxx-api/login => mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [process.env.VUE_APP_BASE_API]: {
-        target: `http://192.168.1.65:9501`,
+        target: `https://wechat.cqprecision.cn`,
         changeOrigin: true,
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
       },
       [process.env.VUE_APP_STATIC_IMG]: {
-        target: `http://192.168.1.65:81`,
+        target: `http://admin.cqprecision.cn/uploads/`,
         changeOrigin: true
       }
     }

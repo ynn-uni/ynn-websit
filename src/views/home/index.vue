@@ -123,17 +123,17 @@ export default {
       idealist: [
         {
           title: '创新',
-          cover: './../../assets/images/new.png',
+          cover: './images/new.png',
           dis: 'INNOVATE'
         },
         {
           title: '共赢',
-          cover: './../../assets/images/all.png',
+          cover: './images/all.png',
           dis: 'ALL-WIN'
         },
         {
           title: '合作',
-          cover: './../../assets/images/he.png',
+          cover: './images/he.png',
           dis: 'HEALTHY'
         }
       ]
